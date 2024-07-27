@@ -1,0 +1,73 @@
+  $VeryLightGray: hsl(0, 0%, 98%);
+  $VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  $LightGrayishBlue: hsl(233, 11%, 84%);
+  $DarkGrayishBlue: hsl(236, 9%, 61%);
+  $VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+  $BrightBlue: hsl(220, 98%, 61%);
+  $CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  .dark-theme {
+    $DarkVeryDarkBlue: hsl(235, 21%, 11%) !important;
+    $DarkVeryDarkDesaturatedBlue: hsl(235, 24%, 19%) !important;
+    $DarkLightGrayishBlue: hsl(234, 39%, 85%) !important;
+    $DarkLightGrayishBlueHover: hsl(236, 33%, 92%) !important;
+    $DarkDarkGrayishBlue: hsl(234, 11%, 52%) !important;
+    $DarkVeryDarkGrayishBlue: hsl(233, 14%, 35%) !important;
+    $DarkVeryDarkGrayishBlue: hsl(237, 14%, 26%) !important;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #root {
+    overflow: hidden;
+    background-color: $VeryLightGray;
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/bg-desktop-light.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+    footer {
+      text-align: center;
+      position: sticky;
+      top: 90%;
+      margin-top: 50px;
+
+    }
+
+    .container {
+      // text-align: start;
+      padding: 10px;
+      width: 450px;
+      background-color: red;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto;
+      
+      .header{
+        padding: 5px;
+        display: flex;
+        // background-color: blue;
+        width: 100%;
+        justify-content: space-between;
+        margin: 10px 5px;
+        button{
+          border: none;
+          background-color:inherit ;
+        }
+      }
+      input{
+        padding: 10px;
+        width: 100%;
+        background-color: green;
+      }
+      .card{}
+    }
+  }

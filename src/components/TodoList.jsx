@@ -1,23 +1,59 @@
+import { iconCheck, iconCross } from "../pages/Pages";
 
 export default function TodoList() {
   return (
     <>
       <ul className="list">
-        <li className="list-item">Lorem, ipsum dolor.</li>
-        <li className="list-item">Accusantium, quas. Hic?</li>
-        <li className="list-item">Tempora, atque molestiae?</li>
-        <li className="list-item">Eius, sint error!</li>
-        <li className="list-item">Sed, blanditiis dignissimos!</li>
-        <li className="list-item">Voluptates, nihil nesciunt.</li>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        <div className="list-item">
+          <span className="check-span">{iconCheck} </span>
+          <li>  Lorem, ipsum dolor.  </li>
+          <span className="cross-span">{iconCross} </span>
+        </div>
+        
       </ul>
       <div className="card-footer">
         <span>5 items left</span>
         <div className="btn">
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+          <button className="active">All</button>
+          <button>Active</button>
+          <button>Completed</button>
         </div>
-    <button>Clear Completed</button>
+        <button>Clear Completed</button>
       </div>
 
     </>

@@ -6,31 +6,29 @@ import TodoList from './TodoList'
 export default function Todo() {
   const [todo, setTodo] = useState('')
   const [todos, setTodos] = useState([])
+  
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-  }
-  console.log(todos)
   useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem('todoss')) || [];
-    setTodos(storedTodos)
+    const storedTodo = localStorage.getItem('todos')
+    if (storedTodo) {
+      setTodos(storedTodo)
+    }
   }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
-  const addTodo = () => {
-    const newTodo = {
-      id: todos.length + 1, todo
-    };
-    setTodos([...todos, newTodo])
+  function handleSubmit(event) {
+    event.preventDefault()
+    const newTodo = { id: Date.now(), text: todo }
+    addTodo(newTodo)
+    setTodo('')
   }
-
-  const removeTodo = (id) => {
-    const updatedTodos = todos.filter(todo => todo.id !== id)
-    setTodos(updatedTodos)
+  const addTodo = (todo) => {
+    setTodos([...todos, todo])
   }
+  const removeTodo = () => { }
 
   return (
     <>
@@ -43,7 +41,7 @@ export default function Todo() {
           <input
             value={todo}
             onChange={(e) => setTodo(e.target.value)}
-            type="text" name="" id="" placeholder='Create a new todo' />
+            type="text" placeholder='Create a new todo' />
         </form>
         <div className="card">
           <TodoList />

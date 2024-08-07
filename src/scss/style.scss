@@ -1,7 +1,7 @@
   $VeryLightGray: hsl(0, 0%, 98%);
   $VeryLightGrayishBlue: hsl(236, 33%, 92%);
-  $LightGrayishBlue: hsl(233, 11%, 84%);
-  $DarkGrayishBlue: hsl(236, 9%, 61%);
+  $LightGrayishBlue: #d2d3db;
+  $DarkGrayishBlue: #9394a5;
   $VeryDarkGrayishBlue: hsl(235, 19%, 35%);
   $BrightBlue: hsl(220, 98%, 61%);
   $CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
@@ -23,9 +23,13 @@
     list-style: none;
   }
 
+  // .btn-active
   .active {
+
     color: $BrightBlue !important;
+
   }
+
 
   .check-span {
     text-align: center;
@@ -81,18 +85,19 @@
       }
     }
 
-form{
-  width: 100%;
-  margin-top: 17px;
-  input {
-    padding: 13px;
-    width: 100%;
-    border: 0px solid;
-    border-radius: 5px;
-    background-color: $VeryLightGray;
-  }
+    form {
+      width: 100%;
+      margin-top: 17px;
 
-}
+      input {
+        padding: 13px;
+        width: 100%;
+        border: 0px solid;
+        border-radius: 5px;
+        background-color: $VeryLightGray;
+      }
+
+    }
 
     .card {
       overflow: auto;

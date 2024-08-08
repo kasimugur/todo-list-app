@@ -3,16 +3,19 @@ import SiteContext from "../context/SiteContext";
 import { iconCheck, iconCross } from "../pages/Pages";
 import activeAdd from "../pages/main.js";
 export default function TodoList() {
-  const { todos, removeTodo, addComplate } = useContext(SiteContext)
-  
+  const {
+    todos, removeTodo, addComplate,
+    filtredTodos, setFilter, removeCompleted
+  } = useContext(SiteContext)
+
   return (
     <>
       <ul className="list">
-        {todos.map((item) => {
+        {filtredTodos.map((item) => {
           return <div key={item.id} className="list-item">
             <span
               onClick={() => addComplate(item.id)}
-              className="check-span">{iconCheck} </span>
+              className={item.isComplate === true ? "check-span" : ''}>{iconCheck} </span>
             <li
               style={{
                 textDecoration: item.isComplate ? 'line-through' : '',
@@ -25,11 +28,14 @@ export default function TodoList() {
       <div className="card-footer">
         <span>{todos.length} items left</span>
         <div className="btn">
-          <button onClick={() => activeAdd()}  className="btn-active active" >All</button>
-          <button onClick={() => activeAdd()}  className="btn-active" >Active</button>
-          <button onClick={() => activeAdd()}  className="btn-active" >Completed</button>
+          <button onClick={() => addComplate()}
+            onClickCapture={() => setFilter('all')} className="btn-active active" >All</button>
+          <button onClick={() => addComplate()}
+            onClickCapture={() => setFilter('active')} className="btn-active" >Active</button>
+          <button onClick={() => addComplate()}
+            onClickCapture={() => setFilter('completed')} className="btn-active" >Completed</button>
         </div>
-        <button>Clear Completed</button>
+        <button onClick={() => removeCompleted()}>Clear Completed</button>
       </div>
 
     </>

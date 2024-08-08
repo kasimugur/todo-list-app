@@ -94,15 +94,16 @@
     }
 
     .card {
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
       width: 100%;
       height: inherit;
-      // overflow: auto;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       background-color: $VeryLightGray;
       padding: 10px;
       margin-top: 10px;
+      position: relative;
 
       .list {
         width: 100%;
@@ -110,6 +111,7 @@
         .list-item {
           display: flex;
           align-items: center;
+
           color: $VeryDarkGrayishBlue;
           border-bottom: 0.5px solid $LightGrayishBlue;
           padding: 10px 20px;
@@ -126,13 +128,18 @@
         .cross-span {
           padding: 0;
           margin-right: 0;
-
+          position: absolute;
+          left: 365px;
+          // display: flex;
+          // align-items: flex-end;
+          // justify-content: flex-end;
           border: none;
-          margin-left: 160px;
+          // margin-left: 160px;
         }
       }
 
       .card-footer {
+        align-items: flex-end;
         display: flex;
         justify-content: space-between;
         margin: 8px 0;
@@ -156,11 +163,13 @@
           .active {
 
             color: $BrightBlue !important;
-
           }
         }
       }
+
     }
+
+
   }
 
 

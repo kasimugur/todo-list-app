@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import '../scss/style.scss'
 import IconTheme from './IconTheme'
 import TodoList from './TodoList'
@@ -8,8 +8,7 @@ export default function Todo() {
   const [todo, setTodo] = useState('')
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) ?
     JSON.parse(localStorage.getItem('todos')) : [])
-  const [complated, setComplated] = useState(JSON.parse(localStorage.getItem('complated')) ?
-    JSON.parse(localStorage.getItem('complated')) : [])
+  const [filter, setFilter] = useState('all')
 
 
   const newTodo = {
@@ -18,12 +17,24 @@ export default function Todo() {
     isComplate: false
   }
 
-  useEffect(() => {
-    localStorage.setItem('complated', JSON.stringify(complated));
-  }, []);
+
+
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+
+  const filtredTodos = useMemo(() => {
+    switch (filter) {
+      case ('all'):
+        return todos;
+      case ('active'):
+        return todos.filter(todo => !todo.isComplate);
+      case ('completed'):
+        return todos.filter(todo => todo.isComplate);
+      default:
+        return todos;
+    }
+  }, [todos, filter])
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -35,6 +46,9 @@ export default function Todo() {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
+  function removeCompleted() {
+    setTodos(todos.filter(todo => !todo.isComplate))
+  }
 
 
   function addComplate(id) {
@@ -45,7 +59,10 @@ export default function Todo() {
   const data = {
     todos,
     removeTodo,
-    addComplate
+    addComplate,
+    setFilter,
+    filtredTodos,
+    removeCompleted
   }
   return (
     <>
@@ -57,6 +74,8 @@ export default function Todo() {
           </div>
           <form onSubmit={handleSubmit}>
             <input
+            min={3}
+            max={40}
               value={todo}
               onChange={(e) => setTodo(e.target.value.trim())}
               type="text" placeholder='Create a new todo' />

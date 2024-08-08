@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import SiteContext from "../context/SiteContext";
 import { iconCheck, iconCross } from "../pages/Pages";
-import '../pages/main'
+import activeAdd from "../pages/main.js";
 export default function TodoList() {
   const { todos, removeTodo, addComplate } = useContext(SiteContext)
+  
   return (
     <>
       <ul className="list">
@@ -22,11 +23,11 @@ export default function TodoList() {
         })}
       </ul>
       <div className="card-footer">
-        <span>5 items left</span>
+        <span>{todos.length} items left</span>
         <div className="btn">
-          <button className="btn-active" >All</button>
-          <button className="btn-active" >Active</button>
-          <button className="btn-active" >Completed</button>
+          <button onClick={() => activeAdd()}  className="btn-active active" >All</button>
+          <button onClick={() => activeAdd()}  className="btn-active" >Active</button>
+          <button onClick={() => activeAdd()}  className="btn-active" >Completed</button>
         </div>
         <button>Clear Completed</button>
       </div>

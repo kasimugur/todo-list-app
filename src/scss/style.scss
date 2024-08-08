@@ -23,12 +23,6 @@
     list-style: none;
   }
 
-  // .btn-active
-  .active {
-
-    color: $BrightBlue !important;
-
-  }
 
 
   .check-span {
@@ -158,6 +152,12 @@
           display: flex;
           width: 40%;
           justify-content: space-evenly;
+
+          .active {
+
+            color: $BrightBlue !important;
+
+          }
         }
       }
     }

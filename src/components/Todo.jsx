@@ -8,6 +8,9 @@ export default function Todo() {
   const [todo, setTodo] = useState('')
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) ?
     JSON.parse(localStorage.getItem('todos')) : [])
+  const [complated, setComplated] = useState(JSON.parse(localStorage.getItem('complated')) ?
+    JSON.parse(localStorage.getItem('complated')) : [])
+
 
   const newTodo = {
     id: Date.now(),
@@ -15,6 +18,9 @@ export default function Todo() {
     isComplate: false
   }
 
+  useEffect(() => {
+    localStorage.setItem('complated', JSON.stringify(complated));
+  }, []);
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
@@ -29,8 +35,10 @@ export default function Todo() {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
-  function addComplate( id) {
-    const updatedTodos = todos.map(todo => todo.id === id ? {...todo, isComplate : !todo.isComplate} : todo) 
+
+
+  function addComplate(id) {
+    const updatedTodos = todos.map(todo => todo.id === id ? { ...todo, isComplate: !todo.isComplate } : todo)
     setTodos(updatedTodos)
   }
 

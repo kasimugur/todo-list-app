@@ -1,11 +1,12 @@
 import { useContext, useEffect } from "react";
 import SiteContext from "../context/SiteContext";
-import { iconCheck, iconCross } from "../pages/Pages";
+import  { iconCross } from "../pages/Pages";
 import activeAdd from "../pages/main.js";
 export default function TodoList() {
   const {
     todos, removeTodo, addComplate,
-    filtredTodos, setFilter, removeCompleted
+    filtredTodos, setFilter, removeCompleted,
+    IconCheck,trick
   } = useContext(SiteContext)
 
   return (
@@ -15,8 +16,9 @@ export default function TodoList() {
           return <div key={item.id} className="list-item">
             <span
               onClick={() => addComplate(item.id)}
+              onClickCapture={() => trick(item.id)}
               className={item.isComplate === true ? "check-span" : ''}
-              >{iconCheck} </span>
+            > {IconCheck} </span>
             <li
               style={{
                 textDecoration: item.isComplate ? 'line-through' : '',

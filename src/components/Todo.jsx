@@ -3,13 +3,14 @@ import '../scss/style.scss'
 import IconTheme from './IconTheme'
 import TodoList from './TodoList'
 import SiteContext from '../context/SiteContext'
+import { iconCheck } from '../pages/Pages'
 
 export default function Todo() {
   const [todo, setTodo] = useState('')
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) ?
     JSON.parse(localStorage.getItem('todos')) : [])
   const [filter, setFilter] = useState('all')
-
+  const [strokess,setStroke] = useState('')
 
   const newTodo = {
     id: Date.now(),
@@ -41,7 +42,7 @@ export default function Todo() {
     setTodos((prev) => [...prev, newTodo])
     setTodo("")
   }
-
+// console.log(iconCheck ),"lkjdsda----asdS--")
   function removeTodo(id) {
     setTodos(todos.filter(todo => todo.id !== id))
   }
@@ -52,8 +53,11 @@ export default function Todo() {
 
 
   function addComplate(id) {
-    const updatedTodos = todos.map(todo => todo.id === id ? { ...todo, isComplate: !todo.isComplate } : todo)
+    const updatedTodos = todos.map(todo =>
+      todo.id === id ? { ...todo, isComplate: !todo.isComplate } : todo)
     setTodos(updatedTodos)
+    setStroke('#fff')
+    
   }
 
   const data = {
@@ -62,8 +66,9 @@ export default function Todo() {
     addComplate,
     setFilter,
     filtredTodos,
-    removeCompleted
+    removeCompleted,
   }
+
   return (
     <>
       <SiteContext.Provider value={data}>
@@ -74,8 +79,8 @@ export default function Todo() {
           </div>
           <form onSubmit={handleSubmit}>
             <input
-            min={3}
-            max={40}
+              min={3}
+              max={40}
               value={todo}
               onChange={(e) => setTodo(e.target.value.trim())}
               type="text" placeholder='Create a new todo' />

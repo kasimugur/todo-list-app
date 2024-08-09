@@ -1,178 +1,192 @@
-  $VeryLightGray: hsl(0, 0%, 98%);
-  $VeryLightGrayishBlue: hsl(236, 33%, 92%);
-  $LightGrayishBlue: #d2d3db;
-  $DarkGrayishBlue: #9394a5;
-  $VeryDarkGrayishBlue: hsl(235, 19%, 35%);
-  $BrightBlue: hsl(220, 98%, 61%);
-  $CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+// // light theme
+// $VeryLightGray: #fafafa;
+// $VeryLightGrayishBlue: #e4e5f1;
+// $LightGrayishBlue: #d2d3db;
+// $DarkGrayishBlue: #9394a5;
+// $VeryDarkGrayishBlue: #484b6a;
+$BrightBlue: #3a7bfd;
+$CheckBackground: linear-gradient #57ddff to #c058f3;
 
-  .dark-theme {
-    $DarkVeryDarkBlue: hsl(235, 21%, 11%) !important;
-    $DarkVeryDarkDesaturatedBlue: hsl(235, 24%, 19%) !important;
-    $DarkLightGrayishBlue: hsl(234, 39%, 85%) !important;
-    $DarkLightGrayishBlueHover: hsl(236, 33%, 92%) !important;
-    $DarkDarkGrayishBlue: hsl(234, 11%, 52%) !important;
-    $DarkVeryDarkGrayishBlue: hsl(233, 14%, 35%) !important;
-    $DarkVeryDarkGrayishBlue: hsl(237, 14%, 26%) !important;
+
+// // dark theme
+$VeryDarkBlue: #161722 !important;
+$VeryDarkDesaturatedBlue: #25273c !important;
+$LightGrayishBlue: #cacde8 !important;
+$LightGrayishBlueHover: #e4e5f1 !important;
+$DarkGrayishBlue: #777a92 !important;
+$VeryDarkGrayishBlue: hsl(233, 14%, 35%) !important;
+$VeryDarkGrayishBlue: hsl(237, 14%, 26%) !important;
+
+@use './color.css' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+
+
+.check-span {
+  text-align: center;
+  border-radius: 50%;
+  padding: 5px 7px;
+  border: 0.5px solid #b1acac;
+  margin-right: 15px;
+  background: linear-gradient(#57ddff, #c058f3);
+
+
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--BodyBgColor);
+  height: 100vh;
+  background-image: var(--BodyImage);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+}
+
+
+
+footer {
+  text-align: center;
+  position: sticky;
+  top: 90%;
+
+  p {
+    color: var(--Color-text);
   }
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-  }
+.container {
+  padding: 10px;
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 
-
-
-  .check-span {
-    text-align: center;
-    border-radius: 50%;
-    padding: 5px 7px;
-    border: 0.5px solid #b1acac;
-    margin-right: 15px;
-    background: linear-gradient(#57ddff, #c058f3);
-  }
-
-  body {
+  .header {
+    padding: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $VeryLightGrayishBlue;
-    height: 100vh;
-    background-image: url('../images/bg-desktop-light.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
+    color: white;
+    // background-color: blue;
     width: 100%;
+    justify-content: space-between;
+    margin: 10px 5px;
+
+    button {
+      border: none;
+      background-color: inherit;
+    }
   }
 
+  form {
+    width: 100%;
+    margin-top: 17px;
 
-
-  footer {
-    text-align: center;
-    position: sticky;
-    top: 90%;
-  }
-
-  .container {
-    padding: 10px;
-    width: 450px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-
-    .header {
-      padding: 5px;
-      display: flex;
-      color: white;
-      // background-color: blue;
+    input {
+      padding: 13px;
       width: 100%;
+      border: 0px solid;
+      border-radius: 5px;
+      background-color: var(--CardBgColor);
+    }
+
+  }
+
+  .card {
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: inherit;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--CardBgColor);
+    padding: 10px;
+    margin-top: 10px;
+    position: relative;
+
+    .list {
+      width: 100%;
+
+      .list-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        color: var(--TextColor);
+        border-bottom: 0.5px solid var(--BorderBotom);
+        padding: 10px 20px;
+      }
+
+      span {
+        text-align: center;
+        border-radius: 50%;
+        padding: 5px 7px;
+        border: 0.5px solid #b1acac;
+        margin-right: 15px;
+      }
+
+      .cross-span {
+        padding: 0;
+        margin-right: 0;
+        position: absolute;
+        left: 365px;
+        // display: flex;
+        // align-items: flex-end;
+        // justify-content: flex-end;
+        border: none;
+        // margin-left: 160px;
+      }
+    }
+
+    .card-footer {
+      align-items: flex-end;
+      display: flex;
       justify-content: space-between;
-      margin: 10px 5px;
+      margin: 8px 0;
+
+      span {
+        padding: 5px;
+        font-size: 11px;
+        color: var(--Color-text);
+      }
 
       button {
+        color: var(--Color-text);
+        background: none;
         border: none;
-        background-color: inherit;
-      }
-    }
+        font-size: 12px;
+        padding: 5px;
+        cursor: pointer;
+        font-weight: bold;
 
-    form {
-      width: 100%;
-      margin-top: 17px;
-
-      input {
-        padding: 13px;
-        width: 100%;
-        border: 0px solid;
-        border-radius: 5px;
-        background-color: $VeryLightGray;
-      }
-
-    }
-
-    .card {
-      overflow-x: hidden;
-      overflow-y: auto;
-      width: 100%;
-      height: inherit;
-      border-radius: 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      background-color: $VeryLightGray;
-      padding: 10px;
-      margin-top: 10px;
-      position: relative;
-
-      .list {
-        width: 100%;
-
-        .list-item {
-          display: flex;
-          align-items: center;
-
-          color: $VeryDarkGrayishBlue;
-          border-bottom: 0.5px solid $LightGrayishBlue;
-          padding: 10px 20px;
-        }
-
-        span {
-          text-align: center;
-          border-radius: 50%;
-          padding: 5px 7px;
-          border: 0.5px solid #b1acac;
-          margin-right: 15px;
-        }
-
-        .cross-span {
-          padding: 0;
-          margin-right: 0;
-          position: absolute;
-          left: 365px;
-          // display: flex;
-          // align-items: flex-end;
-          // justify-content: flex-end;
-          border: none;
-          // margin-left: 160px;
+        &:hover {
+          color: var(--btn-color);
         }
       }
 
-      .card-footer {
-        align-items: flex-end;
+      .btn {
         display: flex;
-        justify-content: space-between;
-        margin: 8px 0;
+        width: 40%;
+        justify-content: space-evenly;
 
-        span {
-          font-size: 11px;
-          color: $DarkGrayishBlue;
-        }
+        .active {
 
-        button {
-          color: $DarkGrayishBlue;
-          border: none;
-          font-size: 12px;
-        }
-
-        .btn {
-          display: flex;
-          width: 40%;
-          justify-content: space-evenly;
-
-          .active {
-
-            color: $BrightBlue !important;
-          }
+          color: $BrightBlue !important;
         }
       }
-
     }
-
 
   }
 
 
-
-
-  .cross-span {}
+}

@@ -17,5 +17,5 @@ html[data-theme="light"] {
   --TextHover: #e4e5f1;
   --BorderBotom: #d2d3db;
   --Color-text: #777a92;
-  --btn-color: #000;
+  --btn-color: rgb(138, 123, 123);
 }

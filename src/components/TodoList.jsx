@@ -1,14 +1,19 @@
 import { useContext, useEffect } from "react";
 import SiteContext from "../context/SiteContext";
-import  { iconCross } from "../pages/Pages";
+import { iconCross } from "../pages/Pages";
 import activeAdd from "../pages/main.js";
 export default function TodoList() {
   const {
     todos, removeTodo, addComplate,
     filtredTodos, setFilter, removeCompleted,
-    IconCheck,trick
+    IconCheck, trick
   } = useContext(SiteContext)
 
+  const IconCheck1 = (<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
+    <path fill="none"  stroke-width="2" d="M1 4.304L3.696 7l6-6"
+    />
+  </svg>);
+  
   return (
     <>
       <ul className="list">
@@ -18,7 +23,7 @@ export default function TodoList() {
               onClick={() => addComplate(item.id)}
               onClickCapture={() => trick(item.id)}
               className={item.isComplate === true ? "check-span" : ''}
-            > {IconCheck} </span>
+            >  {item.isComplate === true ? IconCheck : IconCheck1} </span>
             <li
               style={{
                 textDecoration: item.isComplate ? 'line-through' : '',

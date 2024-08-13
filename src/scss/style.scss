@@ -118,13 +118,24 @@ footer {
       width: 100%;
 
       .list-item {
-        cursor: pointer;
+        
         display: flex;
         align-items: center;
 
         color: var(--TextColor);
         border-bottom: 0.5px solid var(--BorderBotom);
         padding: 10px 20px;
+
+        li{
+          width: 100%;
+          cursor: pointer;
+        }
+
+        &:hover{
+          .cross-span{
+            display: flex;
+          }
+        }
       }
 
       span {
@@ -133,6 +144,7 @@ footer {
         padding: 5px 7px;
         border: 0.5px solid #b1acac;
         margin-right: 15px;
+        cursor: pointer;
       }
 
       .cross-span {
@@ -140,11 +152,10 @@ footer {
         margin-right: 0;
         position: absolute;
         left: 365px;
-        // display: flex;
-        // align-items: flex-end;
-        // justify-content: flex-end;
+        display: none;
         border: none;
-        // margin-left: 160px;
+        
+        cursor: pointer;
       }
     }
 

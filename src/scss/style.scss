@@ -8,14 +8,14 @@ $BrightBlue: #3a7bfd;
 $CheckBackground: linear-gradient #57ddff to #c058f3;
 
 
-// // dark theme
-$VeryDarkBlue: #161722 !important;
-$VeryDarkDesaturatedBlue: #25273c !important;
-$LightGrayishBlue: #cacde8 !important;
-$LightGrayishBlueHover: #e4e5f1 !important;
-$DarkGrayishBlue: #777a92 !important;
-$VeryDarkGrayishBlue: hsl(233, 14%, 35%) !important;
-$VeryDarkGrayishBlue: hsl(237, 14%, 26%) !important;
+// // // dark theme
+// $VeryDarkBlue: #161722 !important;
+// $VeryDarkDesaturatedBlue: #25273c !important;
+// $LightGrayishBlue: #cacde8 !important;
+// $LightGrayishBlueHover: #e4e5f1 !important;
+// $DarkGrayishBlue: #777a92 !important;
+// $VeryDarkGrayishBlue: hsl(233, 14%, 35%) !important;
+// $VeryDarkGrayishBlue: hsl(237, 14%, 26%) !important;
 
 @use './color.css' as *;
 
@@ -98,6 +98,7 @@ footer {
       border: 0px solid;
       border-radius: 5px;
       background-color: var(--CardBgColor);
+      color: var(--input-color);
     }
 
   }
@@ -118,7 +119,7 @@ footer {
       width: 100%;
 
       .list-item {
-        
+
         display: flex;
         align-items: center;
 
@@ -126,13 +127,13 @@ footer {
         border-bottom: 0.5px solid var(--BorderBotom);
         padding: 10px 20px;
 
-        li{
+        li {
           width: 100%;
           cursor: pointer;
         }
 
-        &:hover{
-          .cross-span{
+        &:hover {
+          .cross-span {
             display: flex;
           }
         }
@@ -154,7 +155,7 @@ footer {
         left: 365px;
         display: none;
         border: none;
-        
+
         cursor: pointer;
       }
     }

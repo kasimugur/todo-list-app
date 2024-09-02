@@ -9,14 +9,11 @@ export default function Todo() {
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) ?
     JSON.parse(localStorage.getItem('todos')) : [])
   const [filter, setFilter] = useState('all')
-  // const [strokess,setStroke] = useState('')
-  // const [isCheckeds, setIsCheckeds] = useState('');
 
   const newTodo = {
     id: Date.now(),
     text: todo,
-    isComplate: false,
-    // isChecked: false
+    isComplate: false
   }
 
 
@@ -24,12 +21,6 @@ export default function Todo() {
     <path fill="none" stroke='#fff' stroke-width="2" d="M1 4.304L3.696 7l6-6"
     />
   </svg>);
-
-  // useEffect(() => {
-  // setIsCheckeds(  todos.map(todo => todo.isChecked === false ? '' : '#fff')
-  // .includes('#fff') ? '#fff' : '')
-  // }, [trick])
-
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -61,18 +52,12 @@ export default function Todo() {
     setTodos(todos.filter(todo => !todo.isComplate))
   }
 
-
-  // function trick(id) {
-  //   const updatedChecked = todos.map(todo => todo.id === id ? { ...todo, isChecked: !todo.isChecked } : todo)
-  //   setTodos(updatedChecked)
-  // }
   function addComplate(id) {
     const updatedTodos = todos.map(todo =>
       todo.id === id ? { ...todo, isComplate: !todo.isComplate } : todo)
     setTodos(updatedTodos)
 
   }
-
 
   const data = {
     todos,

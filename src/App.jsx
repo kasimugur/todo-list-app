@@ -1,4 +1,3 @@
-import './App.css'
 import Todo from './components/Todo'
 
 function App() {
@@ -6,7 +5,7 @@ function App() {
   return (
     <>
       <Todo />
-      <footer>
+      <footer >
           <p>Drag and drop to reorder list</p>
         </footer>
     </>
@@ -14,3 +13,6 @@ function App() {
 }
 
 export default App
+
+
+

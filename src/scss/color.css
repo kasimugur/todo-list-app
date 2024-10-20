@@ -2,6 +2,7 @@ html[data-theme="dark"] {
   --BodyBgColor: #161722;
   --CardBgColor: #25273c;
   --BodyImage: url('../images/bg-desktop-dark.jpg');
+  --BodyImageMobile: url('../images/bg-mobile-dark.jpg');
   --TextColor: #cacde8;
   --TextHover: #e4e5f1;
   --BorderBotom: #cacde8;
@@ -14,6 +15,7 @@ html[data-theme="light"] {
   --BodyBgColor: #e4e5f1;
   --CardBgColor: #fafafa;
   --BodyImage: url('../images/bg-desktop-light.jpg');
+  --BodyImageMobile: url('../images/bg-mobile-light.jpg');
   --TextColor: #484b6a;
   --TextHover: #e4e5f1;
   --BorderBotom: #d2d3db;

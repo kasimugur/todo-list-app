@@ -3,6 +3,7 @@ import '../scss/style.scss'
 import IconTheme from './IconTheme'
 import TodoList from './TodoList'
 import SiteContext from '../context/SiteContext'
+import CardFooter from './CardFooter'
 
 export default function Todo() {
   const [todo, setTodo] = useState('')
@@ -21,6 +22,7 @@ export default function Todo() {
     <path fill="none" stroke='#fff' stroke-width="2" d="M1 4.304L3.696 7l6-6"
     />
   </svg>);
+
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -41,8 +43,10 @@ export default function Todo() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    setTodos((prev) => [...prev, newTodo])
-    setTodo("")
+    if (todo.trim() !== "" && todo.length > 3) {
+      setTodos((prev) => [...prev, newTodo])
+      setTodo("")
+    }
   }
   function removeTodo(id) {
     setTodos(todos.filter(todo => todo.id !== id))
@@ -83,12 +87,13 @@ export default function Todo() {
               min={3}
               max={40}
               value={todo}
-              onChange={(e) => setTodo(e.target.value.trim())}
+              onChange={(e) => setTodo(e.target.value)}
               type="text" placeholder='Create a new todo' />
           </form>
           <div className="card">
             <TodoList />
           </div>
+          <CardFooter />
         </div>
 
       </SiteContext.Provider>

@@ -16,7 +16,7 @@
 
 ### Links
 
-- Live Site URL: [live site](https://age-calculator-birthday.netlify.app)
+- Live Site URL: [live site](https://list-todo-k.netlify.app)
 
 ## My process
 
@@ -26,7 +26,7 @@
 - SASS and CSS custom properties
 - Flexbox
 - Mobile-first workflow
-- [React](https://vite.dev/) - React framework
+- [React](https://vite.dev/) - React framework (vite)
 
 ### What I learned
 
@@ -39,5 +39,11 @@
       clearInterval(timer);
     }
   }, [])
+
+   onClick={() => {
+        updatedIcon();
+        document.documentElement.setAttribute('data-theme',
+          themeName === "dark" ? "light" : "dark")
+      }}
 ```
 

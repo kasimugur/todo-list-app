@@ -56,21 +56,24 @@ footer {
   text-align: center;
   position: sticky;
   top: 90%;
-
+  margin-top: 3rem;
   p {
     color: var(--Color-text);
   }
 }
-
+#root{
+  width: 460px;
+}
 .container {
-  padding: 10px;
-  width: 450px;
+  // padding:   0 2rem;
+  max-width: 500px;
   height: 500px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  // flex-wrap: wrap;
+  flex-direction:column;
+  // justify-content: center;
+  // align-items: center;
+margin: 0 0.5rem;
 
   .header {
     padding: 5px;
@@ -108,12 +111,35 @@ footer {
     width: 100%;
     height: inherit;
     border-radius: 5px 5px 0 0;
-    
+
     background-color: var(--CardBgColor);
     padding: 10px;
     margin-top: 10px;
     position: relative;
-
+    .btn-bar{
+      display: none;
+      margin: 0 1em;
+      justify-content: space-between;
+      span {
+        padding: 5px;
+        font-size: 11px;
+        color: var(--Color-text);
+      }
+  
+      button {
+        color: var(--Color-text);
+        background: none;
+        border: none;
+        font-size: 12px;
+        padding: 5px;
+        cursor: pointer;
+        font-weight: bold;
+  
+        &:hover {
+          color: var(--btn-color);
+        }
+      }
+    }
     .list {
       width: 100%;
 
@@ -160,15 +186,16 @@ footer {
     }
 
   }
+
   .card-footer {
     background-color: var(--CardBgColor);
     width: 100%;
-    align-items: flex-end;
     display: flex;
-    border-radius: 0 0 5px 5px ;
-    justify-content: space-between;
+    justify-content: space-around;
+    border-radius: 0 0 5px 5px;
     padding: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
     span {
       padding: 5px;
       font-size: 11px;
@@ -189,6 +216,7 @@ footer {
       }
     }
 
+  
     .btn {
       display: flex;
       width: 40%;
@@ -201,18 +229,34 @@ footer {
   }
 }
 
-@media only screen and (max-width:480px) {
-  body{
+@media only screen and (max-width:450px) {
+  body {
     background-image: var(--BodyImageMobile) !important;
     background-size: 100% 38%;
+    // justify-content: space-between;
   }
-  .card{
-  border-radius: 5px !important;
+  // .container{
+  //   max-width: 450px;
+  // }
+  .card {
+    border-radius: 5px !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .btn-bar{
+      display: flex !important;
+
+    }
   }
-  .card-footer{
+
+
+  .card-footer {
     margin-top: 10px;
     border-radius: 5px !important;
+    span{
+      display: none;
+    }
+    #clear{
+      display: none;
+    }
   }
 
 }

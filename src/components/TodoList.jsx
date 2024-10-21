@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import SiteContext from "../context/SiteContext";
 import { iconCross } from "../pages/Pages";
-import activeAdd from "../pages/main.js";
+
 export default function TodoList() {
   const {
     todos, removeTodo, addComplate,
@@ -33,6 +33,10 @@ export default function TodoList() {
           </div>
         })}
       </ul>
+      <div className="btn-bar">
+      <span>{todos.length} items left</span> 
+      <button onClick={() => removeCompleted()}>Clear Completed</button>
+      </div>
     </>
   )
 }

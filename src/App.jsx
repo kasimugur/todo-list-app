@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <Todo />
-      <footer >
+      <footer>
           <p>Drag and drop to reorder list</p>
         </footer>
     </>

@@ -2,13 +2,12 @@ const activeAdd = () => {
   const btn = document.querySelectorAll('.btn-active')
 
   btn.forEach((btn) => {
-    console.log(btn, "shdlfjşkjadhk")
     btn.addEventListener('click', () => {
-      removeClatlist();
+      removeClasslist();
       btn.classList.add('active');
     })
   })
-  const removeClatlist = () => {
+  const removeClasslist = () => {
     btn.forEach((btn) => {
       btn.classList.remove('active')
     })

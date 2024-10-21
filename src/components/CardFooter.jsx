@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import SiteContext from '../context/SiteContext'
-
+import activeAdd from "../pages/main.js";
 export default function CardFooter() {
   const {
     todos,  setFilter, removeCompleted,
@@ -17,7 +17,7 @@ export default function CardFooter() {
           <button onClick={() => activeAdd()}
             onClickCapture={() => setFilter('completed')} className="btn-active" >Completed</button>
         </div>
-        <button onClick={() => removeCompleted()}>Clear Completed</button>
+        <button id='clear' onClick={() => removeCompleted()}>Clear Completed</button>
       </div>
     </>
   )
